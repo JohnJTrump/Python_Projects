@@ -20,11 +20,11 @@
 
 class non_public: #creates the object class
     def __init__(self): # defines the function
-        self._non_public_VAR = 5 # sets a private variable to integer 5
+        self._non_public_Var = 5 # sets a private variable to integer 5
 
 obj = non_public() # calls the object
 obj._non_public_Var = 20 # passes in new value for the variable
-print(obj._protectedVar) # prints new variable to screen
+print(obj._non_public_Var) # prints new variable to screen
 
 
 
@@ -46,6 +46,6 @@ class non_public2: #creates tje object class
 
 
 obj = non_public2() # Calls for everything in the parent class
-obj.get_non_public2() # uses second function to print variable from first function
-obj.setPrivate(30) # uses third function to change protected variable
-obj.getPrivate() # uses second function to print changed protected variable
+obj.get_protected() # uses second function to print variable from first function
+obj.set_private(30) # uses third function to change protected variable
+obj.get_protected() # uses second function to print changed protected variable
