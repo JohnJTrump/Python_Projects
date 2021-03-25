@@ -23,9 +23,7 @@ import datetime as dt
 gui = Tk()
 gui.geometry("400x400")
 gui.title("File Transfer")
-now = dt.datetime.now()
-ago = now-dt.timedelta(hours=24)
-strftime = "%H:%M %m/%d/%Y"
+
 
 class FolderSelect(Frame): # create the widgets in tkinter
     def __init__(self,parent=None,folderDescription="",**kw):
@@ -40,20 +38,27 @@ class FolderSelect(Frame): # create the widgets in tkinter
     def setFolderPath(self): # function to open file explorer
         folder_selected = filedialog.askdirectory()
         self.folderPath.set(folder_selected)
-        for root, dirs,files in os.walk(created):
-            for fname in files:
-                path = os.path.join(root, fname)
-                st = os.stat(path)
-                mtime = dt.datetime.fromtimestamp(st.st_mtime)
+       
     @property
     def folder_path(self): # function to pass selected folder in to entry box
         return self.folderPath.get()
         
 
 def doStuff(): # function to transfer files
+    now = dt.datetime.now()
+    ago = now-dt.timedelta(hours=24)
+    strftime = "%H:%M %m/%d/%Y"
     folder1 = directory1Select.folder_path
     folder2 = directory2Select.folder_path
-    shutil.move(folder1, folder2)
+    for root, dirs,files in os.walk(folder1):
+        for fname in files:
+            path = os.path.join(root, fname)
+            st = os.stat(path)
+            mtime = dt.datetime.fromtimestamp(st.st_mtime)
+            if mtime > ago:
+                print("True: ", fname, " at ", mtime.strftime("%H:%M %m/%d/%Y"))
+                shutil.move(path, folder2)
+   
     
 #labels for entry boxes
 folderPath = StringVar()
