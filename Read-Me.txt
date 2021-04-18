@@ -6,21 +6,29 @@ facilitated by The Tech Academy.
 
 Projects:
 
--******
--******
--******
+-Phonebook
+-Check Files Gui
+-Finances Regester (checkbook)
 
 
 Descriptions of projects:
 
-*******
-	************************************************************************.
-	************************************************************************.
+Phonebook
+	This project functions as a phone book for a user. It saves a contact's name, phone
+	number and email address in a database and allows the user to update and delete
+	previously stored entries.
 
 
-*******
-	************************************************************************.
-	************************************************************************.
+Check Files Gui
+	This project allows the user to choose transfer all .txt files from one chosen 
+	directory to another. All files that are moves will be saves in a database.
+
+
+CheckBook
+	This project allows users to create multiple accounts to keep track of their 
+	incoming and outgoing financial transactions. It allows a user to add or subtract
+	from an existing balance for each individual account.
+	
 
 *******
 	************************************************************************.
